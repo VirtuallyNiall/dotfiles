@@ -1,0 +1,7 @@
+# This is `bat`s configuration file.
+# You can run `bat --help` to get a list of all possible configuration options.
+
+--theme="Catppuccin Mocha"
+--paging=never
+--style=plain
+--tabs=4

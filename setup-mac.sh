@@ -5,12 +5,12 @@
 # --------------------
 function symbolic_link {
     # Extract args
-    local v_target=$2
     local v_source="$(pwd)/$1"
+    local v_target=$2
 
     # Create/Replace the symbolic link
     echo "- 🔗 Linking $v_source to $v_target"
-    ln -sfF $v_source $v_target
+    ln -sfh $v_source $v_target
 }
 
 
@@ -57,4 +57,13 @@ fi
 # ----------------
 echo "💿 Installing Apps"
 brew bundle --file ./Homebrew/Brewfile
+
+
+# ------------
+#   Link Bat
+# ------------
+echo "🔧 Configuring Bat"
+symbolic_link "Bat" ~/.config/bat
+bat cache --build
+
 
