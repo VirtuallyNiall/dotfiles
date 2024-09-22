@@ -1,0 +1,71 @@
+# --------------------
+#   Brewfile Helpers
+# --------------------
+brew "mas"
+
+
+# -- -- -- -- -- -- -- -- --
+
+
+# ------------
+#   Browsers
+# ------------
+cask "firefox"
+
+
+# ----------
+#   Design
+# ----------
+mas "Affinity Designer 2", id: 1616831348
+mas "Affinity Photo 2: Image Editor", id: 1616822987
+
+
+# ---------------
+#   Development
+# ---------------
+brew "commitizen"
+brew "derailed/k9s/k9s"
+brew "jesseduffield/lazygit/lazygit"
+brew "pulumi/tap/pulumi"
+
+cask "jetbrains-toolbox"
+cask "linear-linear"
+cask "orbstack"
+cask "rapidapi"
+cask "visual-studio-code"
+
+
+# ---------
+#   Fonts
+# ---------
+cask "font-fira-code-nerd-font"
+
+
+# -----------
+#   General
+# -----------
+cask "1password"
+cask "discord"
+cask "notion"
+cask "pdf-expert"
+
+mas "CotEditor", id: 1024640650
+mas "TickTick", id: 966085870
+
+
+# ---------
+#   Utils
+# ---------
+brew "bat"
+brew "eza"
+brew "ffmpeg"
+brew "starship"
+brew "yt-dlp"
+brew "zoxide"
+
+cask "cleanshot"
+cask "raycast"
+cask "rectangle-pro"
+cask "spaceman"
+
+mas "Keka", id: 470158793
