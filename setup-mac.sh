@@ -21,6 +21,24 @@ echo "📁 Ensuring the base directories are created"
 mkdir -p ~/.config
 
 
+# --------
+#   Dock
+# --------
+echo "🔧 Configuring Dock delays"
+defaults write com.apple.dock autohide-delay -float 0; 
+defaults write com.apple.dock autohide-time-modifier -int 0;
+killall Dock
+
+
+# ----------
+#   Finder
+# ----------
+echo "🔧 Configuring Finder views (Deletes .DS_Store files)"
+defaults write com.apple.Finder FXPreferredViewStyle clmv
+sudo find / -name ".DS_Store" -depth -exec rm {} \;
+killall Finder
+
+
 # --------------------
 #   Install Homebrew
 # --------------------
