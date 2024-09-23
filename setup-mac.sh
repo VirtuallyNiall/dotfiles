@@ -56,7 +56,8 @@ fi
 #   Install Apps
 # ----------------
 echo $'\n💿 Installing Apps'
-brew bundle --file ./Homebrew/Brewfile
+symbolic_link "Homebrew/Brewfile" ~/.config/.brewfile
+brew bundle --file ~/.config/.brewfile
 
 
 # -------
@@ -98,3 +99,9 @@ echo $'\n🔧 Configuring Starship'
 symbolic_link "Starship/starship.toml" ~/.config/starship.toml
 
 
+# -------
+#   ZSH
+# -------
+echo $'\n🔧 Configuring ZSH'
+symbolic_link "Zsh/.zshrc" ~/.zshrc
+symbolic_link "Zsh/.zprofile" ~/.zprofile
