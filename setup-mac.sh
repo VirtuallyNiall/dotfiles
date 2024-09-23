@@ -83,6 +83,14 @@ symbolic_link "K9S/skins" ~/Library/Application\ Support/k9s/skins
 symbolic_link "K9S/config.yaml" ~/Library/Application\ Support/k9s/config.yaml
 
 
+# -----------
+#   Lazygit
+# -----------
+echo $'\n🔧 Configuring Lazygit'
+mkdir -p ~/Library/Application\ Support/lazygit
+symbolic_link "Lazygit/config.yaml" ~/Library/Application\ Support/lazygit/config.yml # .YAML isn't valid
+
+
 # ------------
 # ------------
 
