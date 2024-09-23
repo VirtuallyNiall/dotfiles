@@ -2,9 +2,3 @@
 #   Repo
 # --------
 .DS_Store
-
-
-# ------------
-#   Homebrew
-# ------------
-Homebrew/Brewfile.lock.json
