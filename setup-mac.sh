@@ -10,21 +10,21 @@ function symbolic_link {
 
     # Create/Replace the symbolic link
     echo "- 🔗 Linking $v_source to $v_target"
-    ln -sfh $v_source $v_target
+    ln -sfh "$v_source" "$v_target"
 }
 
 
 # -----------------
 #   House Keeping
 # -----------------
-echo "📁 Ensuring the base directories are created"
+echo '📁 Ensuring the base directories are created'
 mkdir -p ~/.config
 
 
 # --------
 #   Dock
 # --------
-echo "🔧 Configuring Dock delays"
+echo $'\n🔧 Configuring Dock delays'
 defaults write com.apple.dock autohide-delay -float 0; 
 defaults write com.apple.dock autohide-time-modifier -int 0;
 killall Dock
@@ -33,44 +33,46 @@ killall Dock
 # ----------
 #   Finder
 # ----------
-echo "🔧 Configuring Finder views (Deletes .DS_Store files)"
+echo $'\n🔧 Configuring Finder views (Deletes .DS_Store files)'
 defaults write com.apple.Finder FXPreferredViewStyle clmv
 sudo find / -name ".DS_Store" -depth -exec rm {} \;
 killall Finder
 
 
-# --------------------
-#   Install Homebrew
-# --------------------
+# ------------
+#   Homebrew
+# ------------
 which -s brew
 if [[ $? != 0 ]] ; then
-    echo "💿 Installing Homebrew"
+    echo $'\n💿 Installing Homebrew'
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-    echo "🚫 Skipping Homebrew install, as it's already installed"
+    echo $'\n🚫 Skipping Homebrew install, as it\'s already installed'
 fi
 
 
 # ----------------
 #   Install Apps
 # ----------------
-echo "💿 Installing Apps"
+echo $'\n💿 Installing Apps'
 brew bundle --file ./Homebrew/Brewfile
 
 
-# ------------
-#   Link Bat
-# ------------
-echo "🔧 Configuring Bat"
+# -------
+#   Bat
+# -------
+echo $'\n🔧 Configuring Bat'
 symbolic_link "Bat" ~/.config/bat
 bat cache --build
 
 
-# ------------
-#   Link Git
-# ------------
-echo "🔧 Configuring Git"
+# -------
+#   Git
+# -------
+echo $'\n🔧 Configuring Git'
 symbolic_link "Git/mac.gitconfig" ~/.gitconfig
+# ------------
+# ------------
 
 
