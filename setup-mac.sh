@@ -92,6 +92,9 @@ symbolic_link "Lazygit/config.yaml" ~/Library/Application\ Support/lazygit/confi
 
 
 # ------------
+#   Starship
 # ------------
+echo $'\n🔧 Configuring Starship'
+symbolic_link "Starship/starship.toml" ~/.config/starship.toml
 
 
