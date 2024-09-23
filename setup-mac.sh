@@ -72,6 +72,17 @@ bat cache --build
 # -------
 echo $'\n🔧 Configuring Git'
 symbolic_link "Git/mac.gitconfig" ~/.gitconfig
+
+
+# -------
+#   K9S
+# -------
+echo $'\n🔧 Configuring K9S'
+mkdir -p ~/Library/Application\ Support/k9s
+symbolic_link "K9S/skins" ~/Library/Application\ Support/k9s/skins
+symbolic_link "K9S/config.yaml" ~/Library/Application\ Support/k9s/config.yaml
+
+
 # ------------
 # ------------
 
