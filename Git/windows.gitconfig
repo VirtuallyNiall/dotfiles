@@ -1,0 +1,28 @@
+[commit]
+	gpgsign = "true"
+[core]
+	editor = "code --wait"
+	sshCommand = "C:/Windows/System32/OpenSSH/ssh.exe"
+[diff]
+	tool = "vscode"
+[difftool "vscode"]
+	cmd = "code --wait --diff $LOCAL $REMOTE"
+[gpg]
+	format = "ssh"
+[gpg "ssh"]
+	program = "C:/Program Files/1Password/app/8/op-ssh-sign.exe"
+[init]
+	defaultBranch = "main"
+[user]
+	name = "Niall"
+	email = "161693828+VirtuallyNiall@users.noreply.github.com"
+	signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG0J94yxJMWp4qxSrqXuybzg6gBX15TSfz8+Y0EzYM8a"
+[merge]
+        tool = "vscode"
+[mergetool "vscode"]
+        cmd = "code --wait --merge $REMOTE $LOCAL $BASE $MERGED"
+[filter "lfs"]
+	required = "true"
+	clean = "git-lfs clean -- %f"
+	smudge = "git-lfs smudge -- %f"
+	process = "git-lfs filter-process"
