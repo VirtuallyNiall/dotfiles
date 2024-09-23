@@ -67,3 +67,10 @@ symbolic_link "Bat" ~/.config/bat
 bat cache --build
 
 
+# ------------
+#   Link Git
+# ------------
+echo "🔧 Configuring Git"
+symbolic_link "Git/mac.gitconfig" ~/.gitconfig
+
+
