@@ -4,6 +4,12 @@
 alias cat='bat'
 
 
+# -------------
+#   CotEditor
+# -------------
+alias edit="/Applications/CotEditor.app/Contents/SharedSupport/bin/cot"
+
+
 # -------
 #   Eza
 # -------
