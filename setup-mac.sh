@@ -40,6 +40,14 @@ killall Finder
 
 
 # ------------
+#   Keybinds
+# ------------
+echo $'\n🔧 Configuring Keybinds'
+mkdir -p ~/Library/KeyBindings
+symbolic_link "Keybinds/Mac.dict" ~/Library/KeyBindings/DefaultKeyBinding.dict
+
+
+# ------------
 #   Homebrew
 # ------------
 which -s brew
