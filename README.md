@@ -12,6 +12,14 @@ cd dotfiles
 ./setup-debian.sh
 ```
 
+### Mac
+
+```bash
+git clone https://github.com/VirtuallyNiall/dotfiles.git
+cd dotfiles
+./setup-mac.sh
+```
+
 ## Testing
 
 Debian testing can be done through the provided dev container.
