@@ -10,3 +10,7 @@ This can be achieved by editing this vscode setting:
 ```
 "terminal.integrated.defaultProfile.linux": "zsh"
 ```
+
+## Acknowledgements
+
+- [Catppuccin Themes](https://github.com/catppuccin/catppuccin)
