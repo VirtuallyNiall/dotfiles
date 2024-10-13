@@ -2,6 +2,16 @@
 
 These are the dotfiles I use across my systems.
 
+## Setup Scripts
+
+### Debian
+
+```bash
+git clone https://github.com/VirtuallyNiall/dotfiles.git
+cd dotfiles
+./setup-debian.sh
+```
+
 ## Testing
 
 Debian testing can be done through the provided dev container.
