@@ -98,7 +98,7 @@ killall Finder
 #   Git
 # -------
 printf 'Configuring Git\n'
-_create_platform_link "Git/.gitconfig" ~/.gitconfig
+_create_common_link "Git/.gitconfig" ~/.gitconfig
 
 
 # ------------

@@ -79,7 +79,7 @@ mv eza ~/.local/bin/eza
 # -------
 printf 'Configuring Git\n'
 _install_package git
-_create_platform_link "Git/.gitconfig" ~/.gitconfig
+_create_common_link "Git/.gitconfig" ~/.gitconfig
 
 
 # -----------
