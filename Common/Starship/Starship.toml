@@ -1,0 +1,45 @@
+# https://starship.rs/config
+
+# Prompt
+add_newline = true
+command_timeout = 1000
+format = """
+$directory\
+$git_branch\
+$env_var\
+$username\
+$container\
+$line_break\
+$character
+"""
+
+[directory]
+truncation_length = -1
+truncate_to_repo = false
+format = "[$read_only]($read_only_style)[$path]($style) "
+style = "bold #914fff"
+read_only = " "
+
+[git_branch]
+style = 'bold #DEDCFF'
+
+[env_var.STARSHIP_DISTRO]
+format = 'as [$env_value](bold #914fff) '
+variable = "STARSHIP_DISTRO"
+
+[username]
+style_user = '#914fff bold'
+style_root = 'red bold'
+format = '[$user]($style) '
+show_always = true
+
+[container]
+format = 'via [$name]($style)'
+style = 'bold #DEDCFF'
+
+[character]
+success_symbol = '[❯](bold #914fff)'
+error_symbol = '[❯](bold #914fff)'
+
+[cmd_duration]
+disabled = true
