@@ -22,7 +22,7 @@ fi
 # Run the correct install script.
 if [[ "$os_name" == "Darwin" ]]; then
     printf "└─> Detected macOS\n\n"
-    # TODO: Run script
+    ./install_mac.sh
 elif [[ "$os_name" == "Linux" ]]; then
     printf "└─> Detected Linux\n\n"
     # TODO: Run script
