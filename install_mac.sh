@@ -1,11 +1,13 @@
 #!/bin/bash
 
 echo "-- macOS Dotfiles installer --"
+echo
 
 # --------------------
 #   Helper Functions
 # --------------------
 
+# Logs and links the source to the target.
 function _create_symlink {
     echo "└─> Linking $2 -> $1"
     ln -sfh "$1" "$2"
@@ -16,7 +18,7 @@ function _create_common_symlink {
     _create_symlink "$(pwd)/common/$1" "$2"
 }
 
-# Links a file or directory in the Mac directory.
+# Links a file or directory in the mac directory.
 function _create_mac_symlink {
     _create_symlink "$(pwd)/mac/$1" "$2"
 }
@@ -33,7 +35,7 @@ function _prompt {
             return 0 # True
             ;;
         *)
-            echo '└─> Invalid input! Please enter Y or N.'
+            echo "└─> Invalid input! Please enter Y or N."
             ;;
         esac
     done
@@ -43,7 +45,7 @@ function _prompt {
 function _install_homebrew {
     which -s brew
     if [[ $? != 0 ]]; then
-        echo '└─> Installing Homebrew'
+        echo "└─> Installing Homebrew"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
@@ -94,15 +96,16 @@ function _cask_install() {
 # -----------------
 #   House Keeping
 # -----------------
-printf "Creating base directories\n\n"
+echo "Creating base directories"
 mkdir -p ~/.config
+echo
 
 # -------
 #   Bat
 # -------
-echo 'bat - Modern cat alternative'
+echo "bat - Modern cat alternative"
 _formulae_install bat
-if _prompt 'link the bat dotfiles'; then
+if _prompt "link the bat dotfiles"; then
     _create_common_symlink "bat" "$HOME/.config/bat"
     bat cache --build >/dev/null
 fi
@@ -111,8 +114,8 @@ echo
 # --------
 #   Dock
 # --------
-echo 'dock - General modifications'
-if _prompt 'reduce the dock hide/show delay'; then
+echo "dock - General modifications"
+if _prompt "reduce the dock hide/show delay"; then
     defaults write com.apple.dock autohide-delay -float 0
     defaults write com.apple.dock autohide-time-modifier -int 0
     killall Dock
@@ -122,18 +125,18 @@ echo
 # -------
 #   Eza
 # -------
-echo 'eza - Modern ls alternative'
+echo "eza - Modern ls alternative"
 _formulae_install eza
 echo
 
 # ----------
 #   Finder
 # ----------
-echo 'dock - General modifications'
-if _prompt 'default to the column view'; then
+echo "dock - General modifications"
+if _prompt "default to the column view"; then
     defaults write com.apple.Finder FXPreferredViewStyle clmv
 fi
-if _prompt 'remove the existing .DS_Store files (Requires sudo)'; then
+if _prompt "remove the existing .DS_Store files (Requires sudo)"; then
     sudo find ~ -name ".DS_Store" -depth -exec rm {} \;
     killall Finder
 fi
@@ -142,8 +145,8 @@ echo
 # -------
 #   Git
 # -------
-echo 'git - Version control'
-if _prompt 'link the git dotfiles'; then
+echo "git - Version control"
+if _prompt "link the git dotfiles"; then
     _create_mac_symlink "git/.gitconfig" "$HOME/.gitconfig"
 fi
 echo
@@ -151,8 +154,8 @@ echo
 # ------------
 #   Keybinds
 # ------------
-echo 'keybinds - General fixes'
-if _prompt 'add home/end fixes'; then
+echo "keybinds - General fixes"
+if _prompt "add home/end fixes"; then
     _create_mac_symlink "keybinds/DefaultKeyBinding.dict" "$HOME/Library/KeyBindings/DefaultKeyBinding.dict"
     echo "└─> Please restart your mac to activate the fixes!"
 fi
@@ -171,9 +174,9 @@ echo
 # ------------
 #   Starship
 # ------------
-echo 'starship - A nice looking prompt'
+echo "starship - A nice looking prompt"
 _formulae_install starship
-if _prompt 'link the starship dotfiles'; then
+if _prompt "link the starship dotfiles"; then
     _create_common_symlink "starship/starship.toml" "$HOME/.config/starship.toml"
 fi
 echo
@@ -181,16 +184,16 @@ echo
 # ----------
 #   Zoxide
 # ----------
-echo 'zoxide - Modern cd replacement'
+echo "zoxide - Modern cd replacement"
 _formulae_install zoxide
 echo
 
 # -------
 #   ZSH
 # -------
-echo 'zsh - default shell'
+echo "zsh - default shell"
 _formulae_install fzf
-if _prompt 'link the zsh dotfiles'; then
+if _prompt "link the zsh dotfiles"; then
     _create_mac_symlink "zsh/.zshrc" "$HOME/.zshrc"
 fi
 echo
@@ -198,6 +201,6 @@ echo
 # -----------
 #   Summary
 # -----------
-echo 'All Done!'
-echo 'You may need to restart the shell session.'
-echo 'You should anyway though :)'
+echo "All Done!"
+echo "You may need to restart the shell session."
+echo "You should anyway though :)"
