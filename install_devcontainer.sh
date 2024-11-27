@@ -26,8 +26,8 @@ function _create_debian_symlink {
 # Install a package using apt
 function _install_package {
     echo "└─> Installing $1 (via apt)"
-    sudo apt-get update > /dev/null
-    sudo apt-get -y install $1 > /dev/null
+    sudo apt-get update >/dev/null
+    sudo apt-get -y install $1 >/dev/null
 }
 
 # Downloads a file to the specificed destination
@@ -73,7 +73,7 @@ echo
 echo "bat - Modern cat alternative"
 _install_package bat
 _create_common_symlink "bat" "$HOME/.config/bat"
-batcat cache --build > /dev/null
+batcat cache --build >/dev/null
 echo
 
 # -------
@@ -95,6 +95,8 @@ LG_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/release
 LG_LINK="https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LG_VERSION}_Linux_${LG_ARCH}.tar.gz"
 _download_and_extract $LG_LINK lazygit
 mv lazygit ~/.local/bin/lazygit
+mkdir -p ~/.config/lazygit
+_create_common_symlink "lazygit/config.yaml" "$HOME/.config/lazygit/config.yml"
 echo
 
 # ------------

@@ -167,6 +167,7 @@ echo
 echo "lazygit - A git TUI"
 _formulae_install lazygit
 if _prompt "link the lazygit dotfiles"; then
+    mkdir -p "$HOME/Library/Application Support/lazygit"
     _create_common_symlink "lazygit/config.yaml" "$HOME/Library/Application Support/lazygit/config.yml"
 fi
 echo
