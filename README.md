@@ -1,8 +1,8 @@
 # Niall's Dotfiles
 
-These are the dotfiles I use across my systems.
+The dotfiles I use across my systems.
 
-## Setup
+## macOS Setup
 
 ```bash
 git clone https://github.com/VirtuallyNiall/dotfiles.git
