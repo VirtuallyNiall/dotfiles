@@ -1,0 +1,10 @@
+confirm-close-surface = false
+font-family = "FiraCode Nerd Font Mono"
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+font-size = 18
+keybind = global:ctrl+t=toggle_quick_terminal
+theme = "catppuccin-mocha"
+window-padding-x = 8
+window-padding-y = 8
